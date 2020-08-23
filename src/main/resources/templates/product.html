@@ -143,14 +143,42 @@
             <h1 th:text="${product.courseName}">Spring Framework Guru - Course Name</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row course-listing">
+<!--        <div class="col-md-6">-->
 
-<!--          this is not working  th:src="@{/image/SpringIntroThumb.png}"-->
-            <img src="https://d2vvqscadf4c1f.cloudfront.net/scgeIJ9wRGGNWvK0jAld_ThumbFREE_01.png"
-                 class="center-block">
+<!--&lt;!&ndash;          this is not working  th:src="@{/image/SpringIntroThumb.png}"&ndash;&gt;-->
+<!--            <img src="https://d2vvqscadf4c1f.cloudfront.net/scgeIJ9wRGGNWvK0jAld_ThumbFREE_01.png"-->
+<!--                 class="center-block">-->
 
-        </div>
+<!--        </div>-->
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="../static/images/SpringIntroThumb.png"
+                             th:src="@{'/images/'+${product.imageUrl}}"
+                             class="center-block"/>
+                    </div>
+                </div>
+                <div class="row course-listing-extra-info col-xs-12">
+                    <div class="col-xs-8">
+                        <img align="left" alt="John Thompson"
+                             src="../static/images/instructor_jt.jpg"
+                             th:src="@{'/images/'+${product.author.image}}"
+                             class="img-circle"/>
+                        <div class="small course-author-name" th:text="${(product.author.firstName)
+                                                          + ' ' + (product.author.lastName)}">
+                            Author Name
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="small course-price" th:text="${product.price > 0 ? '$' + product.price : 'FREE'}">
+                            $PRICE
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
         <div class="col-md-6">
             <div>
