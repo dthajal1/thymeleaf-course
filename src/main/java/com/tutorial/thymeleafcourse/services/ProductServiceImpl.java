@@ -21,7 +21,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProduct(Integer id) {
+    public Product getProductById(Integer id) {
         return productMap.get(id);
     }
 
