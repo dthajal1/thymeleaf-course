@@ -2,12 +2,14 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Spring Framework Guru Courses</title>
+    <title th:text="#{index.page.title}">Page Title</title>
 
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <style>
+    <link rel="stylesheet" th:href="@{/css/custom.css}">
+
+    <style th:remove="all">
         .jumbotron {
             background: url('https://d2vvqscadf4c1f.cloudfront.net/rGIBmJUAT46UuLPwXo3K_Fedora_Core_Ultimate2.jpg') no-repeat center center;
             height: 350px;
@@ -128,9 +130,9 @@
 </head>
 <body>
 
-<div class="jumbotron">
+<div class="jumbotron" th:replace="fragments/jumbotron :: jumbotron">
     <div class="container">
-        <h1>Spring Framework Guru</h1>
+        <h1>Spring Framework Guru without fragment</h1>
         <p class="lead">Online Courses for Spring Framework</p>
     </div>
 </div>
@@ -365,7 +367,9 @@
 </div>
 
 
-
+<div th:replace="fragments/footer :: footer">
+    <h1>Footer</h1>
+</div>
 
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
