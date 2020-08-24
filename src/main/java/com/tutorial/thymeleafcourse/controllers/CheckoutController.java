@@ -21,7 +21,6 @@ public class CheckoutController {
 
     @PostMapping("/docheckout")
     public String doCheckOut(@ModelAttribute @Valid CheckoutCommand checkoutCommand, BindingResult bindingResult) {
-
         if (bindingResult.hasErrors()) {
             return "checkoutform";
         }
