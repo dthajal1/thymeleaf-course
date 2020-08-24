@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -19,7 +20,7 @@ public class CheckoutController {
     }
 
     @PostMapping("/docheckout")
-    public String doCheckOut(@Valid CheckoutCommand checkoutCommand, BindingResult bindingResult) {
+    public String doCheckOut(@ModelAttribute @Valid CheckoutCommand checkoutCommand, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "checkoutform";

@@ -14,7 +14,7 @@ public class CheckoutCommand {
     @Size(min = 2, max = 50)
     private String firstName;
 
-    @NotEmpty
+    @NotEmpty(message = "Last Name is Required")
     @Size(min = 2, max = 50)
     private String lastName;
 
