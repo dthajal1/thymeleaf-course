@@ -2,6 +2,7 @@ package com.tutorial.thymeleafcourse.controllers;
 
 import com.tutorial.thymeleafcourse.commands.CheckoutCommand;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,8 @@ import javax.validation.Valid;
 public class CheckoutController {
 
     @GetMapping("/checkout")
-    public String checkoutForm() {
+    public String checkoutForm(Model model) {
+        model.addAttribute("checkoutCommand", new CheckoutCommand());
         return "checkoutform";
     }
 
@@ -21,9 +23,8 @@ public class CheckoutController {
 
         if (bindingResult.hasErrors()) {
             return "checkoutform";
-        } else {
-            return "checkoutcomplete";
         }
+        return "checkoutcomplete";
 
     }
 }
